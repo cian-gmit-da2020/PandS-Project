@@ -31,16 +31,16 @@ with open("summary.txt", "w+") as f:
 
 
 
-# for col in df.columns:
-# 	plt.hist(setosa_df[col],bins=10, color="b", label="Setosa")
-# 	plt.hist(versicolor_df[col],bins=10, color="orange", label="Versicolor")
-# 	plt.hist(virginica_df[col],bins=10, color="g",label="Virginica")
-# 	plt.title(col)
-# 	plt.legend()
-# 	plt.ylabel("Frequency")
-# 	plt.xlabel(col)	
-# 	plt.savefig(col+".png")
-# 	plt.clf()
+for col in df.columns:
+	plt.hist(setosa_df[col],bins=10, color="b", label="Setosa")
+	plt.hist(versicolor_df[col],bins=10, color="orange", label="Versicolor")
+	plt.hist(virginica_df[col],bins=10, color="g",label="Virginica")
+	plt.title(col)
+	plt.legend()
+	plt.ylabel("Frequency")
+	plt.xlabel(col)	
+	plt.savefig(col+".png")
+	plt.clf()
 
-# sns.pairplot(df, hue="species")
-# plt.show()
+sns.pairplot(df, hue="species")
+plt.show()
