@@ -8,9 +8,8 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
 import seaborn as sns
-
-
 
 df = pd.read_csv("iris.csv")
 
@@ -29,18 +28,24 @@ with open("summary.txt", "w+") as f:
 	f.write("\nVersicolor Species summary \n"+versicolorSum+"\n")
 	f.write("\nVirginica Species summary \n"+virginicaSum+"\n")
 
-
+#dataFrameList = [df, setosa_df, versicolor_df, virginica_df]
 
 for col in df.columns:
-	plt.hist(setosa_df[col],bins=10, color="b", label="Setosa")
-	plt.hist(versicolor_df[col],bins=10, color="orange", label="Versicolor")
-	plt.hist(virginica_df[col],bins=10, color="g",label="Virginica")
-	plt.title(col)
-	plt.legend()
-	plt.ylabel("Frequency")
-	plt.xlabel(col)	
-	plt.savefig(col+".png")
-	plt.clf()
+	fig = plt.figure()
+	gs = gridspec.GridSpec(3, 3, figure=fig)
+	ax = fig.add_subplot(gs[:2, :])
+	ax.hist(df[col],bins=10, edgecolor="black",color="purple", label="Total "+col+" distribution")
+	ax1 = fig.add_subplot(gs[2, 0])
+	ax1.hist(setosa_df[col],bins=10, edgecolor="black", color="b", label="Setosa")
+	ax2 = fig.add_subplot(gs[2, 1])
+	ax2.hist(versicolor_df[col],bins=10, edgecolor="black", color="orange", label="Versicolor")
+	ax3 = fig.add_subplot(gs[2, 2])
+	ax3.hist(virginica_df[col],bins=10, edgecolor="black", color="g",label="Virginica")
+	fig.suptitle(str(col)+" Total Distribution")
+	# fig.ylabel("Frequency")
+	# fig.xlabel(col)	
+	fig.savefig(col+".png")
+	#plt.clf()
 
 sns.pairplot(df, hue="species")
 plt.show()
