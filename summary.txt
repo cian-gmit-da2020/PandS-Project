@@ -1,4 +1,4 @@
-Total data set summary 
+All Species Summary 
        sepal_length  sepal_width  petal_length  petal_width
 count    150.000000   150.000000    150.000000   150.000000
 mean       5.843333     3.054000      3.758667     1.198667
@@ -9,7 +9,7 @@ min        4.300000     2.000000      1.000000     0.100000
 75%        6.400000     3.300000      5.100000     1.800000
 max        7.900000     4.400000      6.900000     2.500000
 
-Setosa Species summary 
+Setosa Species Summary 
        sepal_length  sepal_width  petal_length  petal_width
 count      50.00000    50.000000     50.000000     50.00000
 mean        5.00600     3.418000      1.464000      0.24400
@@ -20,7 +20,7 @@ min         4.30000     2.300000      1.000000      0.10000
 75%         5.20000     3.675000      1.575000      0.30000
 max         5.80000     4.400000      1.900000      0.60000
 
-Versicolor Species summary 
+Versicolor Species Summary 
        sepal_length  sepal_width  petal_length  petal_width
 count     50.000000    50.000000     50.000000    50.000000
 mean       5.936000     2.770000      4.260000     1.326000
@@ -31,7 +31,7 @@ min        4.900000     2.000000      3.000000     1.000000
 75%        6.300000     3.000000      4.600000     1.500000
 max        7.000000     3.400000      5.100000     1.800000
 
-Virginica Species summary 
+Virginica Species Summary 
        sepal_length  sepal_width  petal_length  petal_width
 count      50.00000    50.000000     50.000000     50.00000
 mean        6.58800     2.974000      5.552000      2.02600
