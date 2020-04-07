@@ -88,6 +88,18 @@ A file object **f** is created using a **with open** code block. The block opens
 
 # 5. Calling makehist()
 
+Before calling the makehist() function defined earlier, first we have to create a dictionary of DataFrames. We do this by assigning **df_dict** to a dictionary object with the following key/value pairs.
+
+| Key             | Value         |
+|-----------------|---------------|
+|”Entire Dataset” | df            |
+|”Setosa”         | setosa_df     |
+|”Virginica”      | virginica_df  |
+|“Versicolor”	    | versicolor_df |
+
+Now that the dictionary is defined the makehist() function is called four separate times. Once for each variable in the dataset. The second paramater in the function specifies which variable we are looking to process in each DataFrame in df_dict. The bintup value is set to 15 for the larger plot and 10 for the 3 smaller plots. The plot titles and file paths variables are also assigned in the function. As the file path entered here does not included an absolute path, the file will be written to the current directory. *A full path could be specified if needed*.
+
+
 
 
 References
