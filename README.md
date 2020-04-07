@@ -5,6 +5,10 @@
 
 Table of contents
 1. Introduction
+2. analysis.py
+3. Defining the Function makehist() 
+4. Pandas Dataframes
+5. Calling makehist()
 
 
 # 1. Introduction
@@ -19,7 +23,7 @@ Linear discriminate analysis or Fishers discriminant method is used across scien
 
 The dataset is widely used today as a training data for statistical analysis. The data provides a suitable beginners problem in machine learning[3]. While Iris Setosa can be easily distinguished from the other two species separating Iris Versicolor and Iris Virginica the later two species are more difficult to separate as there is more overlap between values.
 
-# [analysis.py]( https://github.com/cian-gmit-da2020/PandS-Project/blob/master/analysis.py)
+# 2.[analysis.py]( https://github.com/cian-gmit-da2020/PandS-Project/blob/master/analysis.py)
 analysis.py is a [Python 3](https://www.python.org/) script which takes the [Iris dataset from a CSV file]( https://github.com/cian-gmit-da2020/PandS-Project/blob/master/iris.csv) and performs the following 3 tasks on the data:
 
 1.	Outputs the summary of each variable to a .txt file.
@@ -35,8 +39,8 @@ Required Libraries
 4.	[Matplotlib’s gridspec module](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.gridspec.GridSpec.html)
 5.	[Seaborn](https://seaborn.pydata.org/)
 
-# Defining the Function makehist()
-The next block of code after the package inputs is the definition of the programme function **makehist()** which will be called later in the programme to produce the output histograms for each variable in the Iris Dataset. *In previous drafts of analysis.py the histograms were built using a loop through the  variables, this was changed to a defined function to improve readability, reusability and to allow more customisation of each variables histogram[4]*. 
+# 3. Defining the Function makehist()
+The next block of code after the package imports is the definition of the programme function **makehist()** which will be called later in the programme to produce the output histograms for each variable in the Iris Dataset. *In previous drafts of analysis.py the histograms were built using a loop through the  variables, this was changed to a defined function to improve readability, reusability and to allow more customisation of each variables histogram[4]*. 
 
 The goal of makehist() is to take a number of inputs and to produce 4 axes histograms plot on a single figure and save the output to a .png file. The main plot would take up 2/3 of the figure while the other 3 subplots would share the final 1/3. The main plot would be the entire dataset and one smaller plot for each species. The function takes 5 input variables **dict, col_name, bintup, title and fileout**.
 
@@ -72,6 +76,19 @@ And creates the following output file "Petal Length Histogram.png":
 
 <img src=https://github.com/cian-gmit-da2020/PandS-Project/blob/master/Petal%20Length%20Histogram.png>
 
+# 4. [Pandas Dataframes](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)
+
+Pandas is python tool designed for high-level data manipulation. It is based on the Numpy package and uses a built-in data structure called a pandas DataFrame which is designed for handling tabular data like the data in iris.csv[10]. 
+
+First the iris.csv data is loaded into the DataFrame object **df** using the pandas.read_csv() method[11]. 3 more DataFrames are initialised from df by assigning a new value to the result of checking that the value in column “species” is equal to either the setosa, virginica or versicolour species.
+
+The pandas describe() method is used on each of the DataFrames to calculate general descriptive statistics for the given data. This includes count, minimum and maximum values, mean, standard deviation and 25th, 50th and 75th percentiles [12].
+
+A file object **f** is created using a **with open** code block. The block opens a file *summary.txt* in write mode. Using a file object in this way ensures the file is closed when you are finished writing to it[13]. The summary statistics generated earlier are then written to the file along with some headings and with added newline characters to separate the different data.
+
+# 5. Calling makehist()
+
+
 
 References
 1. https://digital.library.adelaide.edu.au/dspace/bitstream/2440/15227/1/138.pdf
@@ -83,6 +100,11 @@ References
 7. https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.gridspec.GridSpec.html
 8. https://matplotlib.org/3.1.1/gallery/subplots_axes_and_figures/gridspec_multicolumn.html#sphx-glr-gallery-subplots-axes-and-figures-gridspec-multicolumn-py
 9. https://matplotlib.org/3.2.1/tutorials/intermediate/tight_layout_guide.html
+10. https://www.learnpython.org/en/Pandas_Basics
+11. https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
+12. https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html
+13. https://docs.python.org/3/tutorial/inputoutput.html
+
 
 
 
