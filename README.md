@@ -9,21 +9,23 @@ Table of contents
 3. Defining the Function makehist() 
 4. Pandas Dataframes
 5. Calling makehist()
-
+6. Seaborn pairplot
 
 # 1. Introduction
+
 The Iris flower data set, commonly known as Fischer’s Iris data set, is a collection of 150 samples of Iris flowers including measurements of the flower's **petal length, petal width, sepal length and sepal width** in centimeters. The flowers are further classified by their species type **Setosa, Virginica and Versicolor**. There are 50 samples of each species within the dataset.
 
 <img src=https://raw.githubusercontent.com/RubixML/Iris/master/docs/images/iris-species.png>
 
-The data set itself was first introduced by the British statistician and biologist Ronald Fisher in his 1936 paper *The use of multiple measurements in taxonomic problems*[1]. The data was originally collected by the American Botanist Edgar Anderson and is sometimes called Anderson’s Iris data set.
+The data set itself was most famously used by the British statistician and biologist Ronald Fisher in his 1936 paper *The use of multiple measurements in taxonomic problems*[1]. The data was however originally collected by the American Botanist Edgar Anderson and is sometimes called Anderson’s Iris data set.
 
-Fisher in his paper used the dataset to perform a discriminant analysis in an attempt to find *“What linear function of the four measurements will maximize the ratio of the difference between the specific means to the standard deviations within species”*[1]. 
-Linear discriminate analysis or Fishers discriminant method is used across scientific fields to separate 2 or more classes of objects based on a combination of features.[2] In this case the 3 Species are separated based on the measurements for petal length, petal width, sepal length and sepal width.
+Fisher, in his paper, used the dataset to perform a discriminant analysis in an attempt to find *“What linear function of the four measurements will maximize the ratio of the difference between the specific means to the standard deviations within species”*[1]. 
+Linear discriminate analysis or Fishers discriminant method is used across scientific fields to separate 2 or more classes of objects based on a combination of features[2]. In this case the 3 Species are separated based on the measurements for petal length, petal width, sepal length and sepal width.
 
-The dataset is widely used today as a training data for statistical analysis. The data provides a suitable beginners problem in machine learning[3]. While Iris Setosa can be easily distinguished from the other two species separating Iris Versicolor and Iris Virginica the later two species are more difficult to separate as there is more overlap between values.
+The dataset is widely used today as a training dataset for statistical analysis. The data provides a suitable beginners problem in machine learning[3]. While Iris Setosa can be easily distinguished from the other two species separating Iris Versicolor and Iris Virginica the later two species are more difficult to separate as there is more overlap between values.
 
-# 2.[analysis.py]( https://github.com/cian-gmit-da2020/PandS-Project/blob/master/analysis.py)
+# 2. [analysis.py]( https://github.com/cian-gmit-da2020/PandS-Project/blob/master/analysis.py)
+
 analysis.py is a [Python 3](https://www.python.org/) script which takes the [Iris dataset from a CSV file]( https://github.com/cian-gmit-da2020/PandS-Project/blob/master/iris.csv) and performs the following 3 tasks on the data:
 
 1.	Outputs the summary of each variable to a .txt file.
@@ -33,13 +35,13 @@ analysis.py is a [Python 3](https://www.python.org/) script which takes the [Iri
 The script requires a number of external libraries, listed below, that are not included in standard python and need to be imported. This is done at the beginning of the programme. All of these libraries come as standard in the [anaconda distribution]( https://www.anaconda.com/) but can alternatively be installed with a package manager such as [pip](https://pypi.org/project/pip/) or [conda](https://docs.conda.io/en/latest/). 
 
 Required Libraries
-1.	[Numpy](https://numpy.org/)
-2.	[Pandas]( https://pandas.pydata.org/)
-3.	[Matplotlib’s pyplot module](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.html)
-4.	[Matplotlib’s gridspec module](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.gridspec.GridSpec.html)
-5.	[Seaborn](https://seaborn.pydata.org/)
+1.	[Pandas]( https://pandas.pydata.org/)
+2.	[Matplotlib’s pyplot module](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.html)
+3.	[Matplotlib’s gridspec module](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.gridspec.GridSpec.html)
+4.	[Seaborn](https://seaborn.pydata.org/)
 
 # 3. Defining the Function makehist()
+
 The next block of code after the package imports is the definition of the programme function **makehist()** which will be called later in the programme to produce the output histograms for each variable in the Iris Dataset. *In previous drafts of analysis.py the histograms were built using a loop through the  variables, this was changed to a defined function to improve readability, reusability and to allow more customisation of each variables histogram[4]*. 
 
 The goal of makehist() is to take a number of inputs and to produce 4 axes histograms plot on a single figure and save the output to a .png file. The main plot would take up 2/3 of the figure while the other 3 subplots would share the final 1/3. The main plot would be the entire dataset and one smaller plot for each species. The function takes 5 input variables **dict, col_name, bintup, title and fileout**.
@@ -99,6 +101,7 @@ Before calling the makehist() function defined earlier, first we have to create 
 
 Now that the dictionary is defined the makehist() function is called four separate times. Once for each variable in the dataset. The second paramater in the function specifies which variable we are looking to process in each DataFrame in df_dict. The bintup value is set to 15 for the larger plot and 10 for the 3 smaller plots. The plot titles and file paths variables are also assigned in the function. As the file path entered here does not included an absolute path, the file will be written to the current directory. *A full path could be specified if needed*.
 
+# 6. Seaborn pairplot
 
 
 
