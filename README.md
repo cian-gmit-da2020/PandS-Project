@@ -110,6 +110,7 @@ The program calls pairplot with only two paramaters **df** and **hue="species"**
 One of the benefits of using pairplot to plot all the axes together in a single grid as opposed to in individual files is that it is very easy to view a compare the plots side-by-side and see which variables more noticably seperate the species from one another. It is possible to see from the image below that the setosa species is easily seperated from the other two.
 
 **Scatter Pairs.png**
+
 <img src="https://github.com/cian-gmit-da2020/PandS-Project/blob/master/Scatter%20Pairs.png?raw=true" width=500>
 
 References
