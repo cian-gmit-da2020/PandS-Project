@@ -10,6 +10,8 @@ Table of contents
 4. Pandas Dataframes
 5. Calling makehist()
 6. Seaborn pairplot
+7. Conclusion
+8. References
 
 # 1. Introduction
 
@@ -86,7 +88,8 @@ First the iris.csv data is loaded into the DataFrame object **df** using the pan
 
 The pandas describe() method is used on each of the DataFrames to calculate general descriptive statistics for the given data. This includes count, minimum and maximum values, mean, standard deviation and 25th, 50th and 75th percentiles [12].
 
-A file object **f** is created using a **with open** code block. The block opens a file *[summary.txt](https://github.com/cian-gmit-da2020/PandS-Project/blob/master/summary.txt)* in write mode. Using a file object in this way ensures the file is closed when you are finished writing to it[13]. The summary statistics generated earlier are then written to the file along with some headings and with added newline characters to separate the different data.
+A file object **f** is created using a **with open** code block. The block opens a file *[summary.txt](https://github.com/cian-gmit-da2020/PandS-Project/blob/master/summary.txt)* in write mode. Using a file object in this way ensures the file is closed when you are finished writing to it[13]. <pre><code>with open("summary.txt", "w+") as f:</code></pre>
+The summary statistics generated earlier are then written to the file along with some headings and with added newline characters to separate the different data.
 
 # 5. Calling makehist()
 
@@ -102,6 +105,8 @@ Before calling the makehist() function defined earlier, first we have to create 
 Now that the dictionary is defined the makehist() function is called four separate times. Once for each variable in the dataset. The second paramater in the function specifies which variable we are looking to process in each DataFrame in df_dict. The bintup value is set to 15 for the larger plot and 10 for the 3 smaller plots. The plot titles and file paths variables are also assigned in the function. As the file path entered here does not included an absolute path, the file will be written to the current directory. *A full path could be specified if needed*.
 
 # 6. [Seaborn pairplot](https://seaborn.pydata.org/generated/seaborn.pairplot.html)
+<pre><code>sns.pairplot(df, hue="species")
+plt.savefig("Scatter Pairs.png")</code></pre>
 
 The final part of the program involves using the Seaborn external library to create a scatter plot of each pair of variables. Seaborn is a data visualization library that is based on matplotlib. It provides a high-level user interface for drawing statistical graphics[14]. The Seaborn method used here is **pairplot()**. pairplot by default will create a grid of axes that plots each numerical variable in the data accross a single row in the y-axis and a single column in the x-axis[15].
 
@@ -113,7 +118,10 @@ One of the benefits of using pairplot to plot all the axes together in a single 
 
 <img src="https://github.com/cian-gmit-da2020/PandS-Project/blob/master/Scatter%20Pairs.png?raw=true" width=500>
 
-References
+# 7. Conclusion
+
+
+# 8. References
 1. https://digital.library.adelaide.edu.au/dspace/bitstream/2440/15227/1/138.pdf
 2. https://en.wikipedia.org/wiki/Linear_discriminant_analysis
 3. https://en.wikipedia.org/wiki/Iris_flower_data_set
