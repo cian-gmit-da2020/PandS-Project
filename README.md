@@ -32,7 +32,7 @@ analysis.py is a [Python 3](https://www.python.org/) script which takes the [Iri
 2.	Saves a histogram of each variable to .png files.
 3.	Saves a scatter plot of each variable to .png files.
 
-The script requires a number of external libraries, listed below, that are not included in standard python and need to be imported. This is done at the beginning of the programme. All of these libraries come as standard in the [anaconda distribution]( https://www.anaconda.com/) but can alternatively be installed with a package manager such as [pip](https://pypi.org/project/pip/) or [conda](https://docs.conda.io/en/latest/). 
+The script requires a number of external libraries, listed below, that are not included in standard python and need to be imported. This is done at the beginning of the program. All of these libraries come as standard in the [anaconda distribution]( https://www.anaconda.com/) but can alternatively be installed with a package manager such as [pip](https://pypi.org/project/pip/) or [conda](https://docs.conda.io/en/latest/). 
 
 Required Libraries
 1.	[Pandas]( https://pandas.pydata.org/)
@@ -42,7 +42,7 @@ Required Libraries
 
 # 3. Defining the Function makehist()
 
-The next block of code after the package imports is the definition of the programme function **makehist()** which will be called later in the programme to produce the output histograms for each variable in the Iris Dataset. *In previous drafts of analysis.py the histograms were built using a loop through the  variables, this was changed to a defined function to improve readability, reusability and to allow more customisation of each variables histogram[4]*. 
+The next block of code after the package imports is the definition of the program function **makehist()** which will be called later in the program to produce the output histograms for each variable in the Iris Dataset. *In previous drafts of analysis.py the histograms were built using a loop through the  variables, this was changed to a defined function to improve readability, reusability and to allow more customisation of each variables histogram[4]*. 
 
 The goal of makehist() is to take a number of inputs and to produce 4 axes histograms plot on a single figure and save the output to a .png file. The main plot would take up 2/3 of the figure while the other 3 subplots would share the final 1/3. The main plot would be the entire dataset and one smaller plot for each species. The function takes 5 input variables **dict, col_name, bintup, title and fileout**.
 
@@ -70,7 +70,7 @@ The next 3 axes **ax1, ax2 and ax3** are created in a very similar way to ax. Th
 Finally the function ends with two more methods. fig.tight_layout() is used to improve the spacing between the 4 axes [9]. Finally the function ends with a call of fig.savefig() and uses the **fileout** filepath variable to write the image to the specified filename.
 
 **Example**
-Later in the programme the function is called as follows:
+Later in the program the function is called as follows:
 
 <pre><code>makehist(df_dict, "petal_length", (15, 10), "Petal Length Distribution All Species", "Petal Length Histogram.png")</code></pre>
 
