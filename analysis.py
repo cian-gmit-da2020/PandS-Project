@@ -12,13 +12,13 @@ import matplotlib.gridspec as gridspec
 import seaborn as sns
 
 # Defining a function for creating the output histograms
-# The function takes a number of vars to allow for customisation
+# The function takes a number of parameters to allow for customisation
 def makehist(dict, col_name, bintup, title, fileout):
 	plt.style.use('seaborn') # using the seaborn style sheet
 	# Creating the plot figure fig
 	fig = plt.figure()
-	# Using the grid spec method to create shape needed 
-	# For the 1 large hist and 3 smaller hists in figure fig
+	# Using the grid spec method to create the shape needed cont.
+	# for the 1 large hist and 3 smaller hists in figure fig
 	gs = gridspec.GridSpec(3, 3, figure=fig)
 	# Adding first and largest hist
 	ax = fig.add_subplot(gs[:2, :])
@@ -74,8 +74,8 @@ with open("summary.txt", "w+") as f:
 df_dict = {"Entire Dataset": df, "Setosa": setosa_df, 
 "Virginica": virginica_df, "Versicolor": versicolor_df}
 
-# Using the function makehist() create a histogram 
-# For each variable for each dataframe
+# Using the function makehist() create a histogram cont.
+# for each variable for each dataframe
 makehist(df_dict, "petal_length", (15, 10), 
 "Petal Length Distribution All Species", "Petal Length Histogram.png")
 makehist(df_dict, "petal_width", (15, 10), 
@@ -85,7 +85,7 @@ makehist(df_dict, "sepal_width", (15, 10),
 makehist(df_dict, "sepal_length", (15, 10), 
 "Sepal Length Distribution All Species", "Sepal Length Histogram.png")
 
-# Using the seaborn pairplot method to plot 
+# Using the seaborn pairplot method to plot cont.
 # a scatter plot for each pair of variables in the data
 sns.pairplot(df, hue="species")
 plt.savefig("Scatter Pairs.png")

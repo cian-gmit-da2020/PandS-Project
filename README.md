@@ -24,7 +24,7 @@ The data set itself was most famously used by the British statistician and biolo
 Fisher, in his paper, used the dataset to perform a discriminant analysis in an attempt to find *“What linear function of the four measurements will maximize the ratio of the difference between the specific means to the standard deviations within species”* [1]. 
 Linear discriminate analysis or Fishers discriminant method is used across scientific fields to separate 2 or more classes of objects based on a combination of features [2]. In this case the 3 Species are separated based on the measurements for petal length, petal width, sepal length and sepal width.
 
-The dataset is widely used today as a training dataset for statistical analysis. The data provides a suitable beginners problem in machine learning [3]. While Iris Setosa can be easily distinguished from the other two species separating Iris Versicolor and Iris Virginica the later two species are more difficult to separate as there is more overlap between values.
+The dataset is widely used today as a training dataset for statistical analysis. The data provides a suitable beginners problem in machine learning [3]. This is because the dataset itself is relatively small but the classification problem it presents is challenging enough for students.
 
 # 2. [analysis.py]( https://github.com/cian-gmit-da2020/PandS-Project/blob/master/analysis.py)
 
@@ -44,28 +44,30 @@ Required Libraries
 
 # 3. Defining the Function makehist()
 
-The next block of code after the package imports is the definition of the program function **makehist()** which will be called later in the program to produce the output histograms for each variable in the Iris Dataset. *In previous drafts of analysis.py the histograms were built using a loop through the  variables, this was changed to a defined function to improve readability, reusability and to allow more customisation of each variables histogram [4]*. 
+The next block of code after the package imports is the definition of the program function **makehist()**. This function will be called later in the program to produce the output histograms for each variable in the Iris Dataset. *In previous drafts of analysis.py the histograms were built using a loop through the  variables, this was changed to a defined function to improve readability, reusability and to allow more customisation of each variables histogram [4]*. 
 
 The goal of makehist() is to take a number of inputs and to produce 4 axes histogram plots on a single figure and save the output to a .png file. The main plot would take up 2/3 of the figure while the other 3 subplots would share the final 1/3. The main plot would be the entire dataset and one smaller plot for each species. The function takes 5 input variables **dict, col_name, bintup, title and fileout**.
 
-**dict**
+**dict** -
 The variable dict will be a dictionary where the key/value pair is a label for the entire dataset and each variable along with its corresponding pandas dataframe. 
 
-**col_name**
+**col_name** -
 The variable col_name takes a string value that corresponds to a column in the iris dataset eg petal_length, petal_width.
 
-**bintup**
-Bintup is a tuple of integers. The first integer **bintup[0]** is used as the bin size for the larger histogram and the second value **bintup[1]** is sued for the smaller  histograms bin size.
+**bintup** -
+Bintup is a tuple of integers. The first integer **bintup[0]** is used as the bin size for the larger histogram and the second value **bintup[1]** is used for the smaller  histograms bin size.
 
-**title**
-title takes a string value and uses that as the title for the whole histogram figure
+**title** - 
+title takes a string value and uses that string as the title for the whole histogram figure
 
-**fileout**
+**fileout** -
 fileout takes a string filepath and saves the histogram to that file path.
 
-The function begins by setting up the plot figure and the axes grid. First the plot style is set to the “Seaborn” style sheet using plt.style.use() [5]. The function initialises the plot figure **fig** using plt.figure() [6]. Next matplotlib’s gridspec method is used to initialised as object **gs** in the figure fig with layout of 3 rows and 3 columns [7][8].
+The function begins by setting up the plot figure and the axes grid. First the plot style is set to the “Seaborn” style sheet using plt.style.use() [5]. The function initialises the plot figure **fig** using plt.figure() [6]. Next matplotlib’s gridspec method is used to initialise an object **gs** in the figure fig with layout of 3 rows and 3 columns [7][8].
 
-Now that the setup is done the program can starts creating the individual histogram axes. The first plot **ax** is set to take up the first 2 rows and all 3 columns using the gs object. A histogram is plotted to ax using ax.hist() using the “Entire Dataset” key to access the full iris data dataframe held as the dictionary value. The col_name variable is used to plot a specific variable within the dataframe, the first element of bintup is used to set the amount of bins, the colour is set to yellow, edgecolour for the bins is added and a label for the histogram is added. Finally a title is assigned to the axes with ax.set_title().
+Now that the setup is done the program can start creating the individual histogram axes. The first plot **ax** is set to take up the first 2 rows and all 3 columns using the gs object. A histogram is plotted to ax using ax.hist() using the “Entire Dataset” key to access the full iris dataset dataframe held as the dictionary value. 
+
+The col_name variable is used to plot a specific variable within the dataframe, the first element of bintup is used to set the amount of bins, the colour is set to yellow, edgecolour for the bins is added and a label for the histogram is added. Finally a title is assigned to the axes with ax.set_title().
 
 The next 3 axes **ax1, ax2 and ax3** are created in a very similar way to ax. The differences being a different dictionary key is used to access a different dataframe value, a different gridspec value is used to assign the smaller axes to the bottom row in a separate column each, a different colour is used for each axes and the second element of the bintup tuple is used for the bin value. Each axes is titled for the species it represents.
 
@@ -102,7 +104,7 @@ Before calling the makehist() function defined earlier, first we have to create 
 |”Virginica”      | virginica_df  |
 |“Versicolor”	  | versicolor_df |
 
-Now that the dictionary is defined the makehist() function is called four separate times. Once for each variable in the dataset. The second parameter in the function specifies which variable we are looking to process in each DataFrame in df_dict. The bintup value is set to 15 for the larger plot and 10 for the 3 smaller plots. The plot titles and file path variables are also assigned in the function. As the file path entered here does not included an absolute path, the file will be written to the current directory. *A full path could be specified if needed*.
+Now that the dictionary is defined the makehist() function is called four separate times. Once for each variable in the dataset. The second parameter in the function specifies which variable we are looking to process in each DataFrame in df_dict. The bintup value is set to 15 for the larger plot and 10 for the 3 smaller plots. The plot titles and file path variables are also assigned in the function. *As the file path entered here does not included an absolute path, the file will be written to the current directory. A full path could be specified if needed*.
 
 # 6. [Seaborn pairplot](https://seaborn.pydata.org/generated/seaborn.pairplot.html)
 <pre><code>sns.pairplot(df, hue="species")
@@ -120,7 +122,7 @@ The results generated by analysis.py allow us to perform an [exploratory analysi
 ## summary.txt
 The data in summary.txt shows some basic statistics for the data and separates them out based on species type which allows for some comparison between the 3 types. From the data here we can easily see that the setosa measurements vary significantly from the other two species. They are smaller across all 4 measurements but see the largest difference in petal length and petal width (fig.1). 
 
-While the virginica species tends to be larger than versicolor on average across all measurements they are not as easily separated as Setosa. Looking at the results of the summary of both species we can see there is significant overlap in the [interquartile ranges](https://en.wikipedia.org/wiki/Interquartile_range) of the two species. This poses a difficult challenge if we were given unclassified flower and had to identify what species it was based it's measurements alone as many virginica and versicolor flowers could share similar values.
+While the virginica species tends to be larger than versicolor on average across all measurements they are not as easily separated as Setosa. Looking at the results of the summary of both species we can see there is significant overlap in the [interquartile ranges](https://en.wikipedia.org/wiki/Interquartile_range) [18] of the two species. This poses a difficult challenge if we were given an unclassified flower and had to identify what species it was based it's measurements alone as many virginica and versicolor flowers would share similar values.
 
 **fig.1**
 |Species       | sepal_length | sepal_width | petal_length | petal_width |                                                        
@@ -131,9 +133,9 @@ While the virginica species tends to be larger than versicolor on average across
 
 ## Histograms
 
-In general the variables present with a [Multimodal Distribution](https://en.wikipedia.org/wiki/Multimodal_distribution) where there are more than one peak. The exception here is seen below in the Sepal Width Histogram which show a [Normal Distribution](https://en.wikipedia.org/wiki/Normal_distribution). This multi-peak can be explained by looking at the sub-graphs which contain the species histograms. In the Petal Length plot, for example, we can see a peak between 1 and 2 which corresponds exactly with the Setosa Species where all the measurements fall between these values.
+In general the variables present with a [Multimodal Distribution](https://en.wikipedia.org/wiki/Multimodal_distribution) [19] where there are more than one peak. The exception here is seen below in the Sepal Width Histogram which shows a [Normal Distribution](https://en.wikipedia.org/wiki/Normal_distribution) [20]. This multi-peak can be explained by looking at the individual species in the sub-graphs. In the Petal Length plot, for example, we can see a peak between 1 and 2 which corresponds exactly with the Setosa Species where all the measurements fall between these values. The individual species have much more normal distorbutions on their own than the entire dataset presents.
 
-|**fig.2**|       |
+**fig.2**       
 |---------|-------|
 | <img src=https://github.com/cian-gmit-da2020/PandS-Project/blob/master/Petal%20Length%20Histogram.png width="400"> | <img src=https://github.com/cian-gmit-da2020/PandS-Project/blob/master/Petal%20Width%20Histogram.png width="400"> |
 | <img src=https://github.com/cian-gmit-da2020/PandS-Project/blob/master/Sepal%20Length%20Histogram.png width="400"> | <img src=https://github.com/cian-gmit-da2020/PandS-Project/blob/master/Sepal%20Width%20Histogram.png width="400"> |
@@ -142,16 +144,17 @@ In general the variables present with a [Multimodal Distribution](https://en.wik
 
 One of the benefits of using pairplot to plot all the axes together in a single grid as opposed to in individual files is that it is very easy to view and compare the plots side-by-side and see which variables more noticeably separate the species from one another. It is possible to see from the image in fig.3 below that the setosa species is easily separated from the other two in almost all the axes.
 
-The only variable pair where the three species are closely clustered is sepal_length vs sepal_width. If we look at the diagonal KDE representing sepal width we can see a lot of overlap between the species which suggest that it would be difficult to distinguish between the species on this alone.
+The only variable pair where the three species are closely clustered is sepal_length vs sepal_width. If we look at the diagonal KDE representing sepal width we can see a lot of overlap between the species which suggest that it would be difficult to distinguish between the species on this variable measurement alone.
 
-If we look again at the relationship between Versicolor and Virginica Species we can again see that in general Virginica tend to be larger than their Versicolor counterparts. However there is a lack clear separation between the variables and in the case of sepal length vs sepal width the species are almost indistinguishable.
+If we look again at the relationship between Versicolor and Virginica Species we can again see that in general Virginica tend to be larger than their Versicolor counterparts. However there is a lack of clear separation between the variables and in the case of sepal length vs sepal width the species are almost indistinguishable.
 
 **fig.3**
+
 <img src="https://github.com/cian-gmit-da2020/PandS-Project/blob/master/Scatter%20Pairs.png?raw=true" width=550>
 
 ## Final Thoughts
 
-From the results of the analysis above there are 3 points we can takeaway.
+From the results of the analysis above there are 3 main points we can takeaway about the Iris data.
 
 1. The Setosa Species can be separated from other 2 species on the basic analysis done here. They tend to be on average significantly smaller on 3 of the four measurements and when a scatter plot of any pair of variables, except sepal length vs sepal width, can be easily separated from the other species.
 2. The Virginica Species on average tend to be larger across all measurements than the Versicolor. However there is significant overlap between the two species and they are not easily separated on the plots created here. 
@@ -177,3 +180,5 @@ From the results of the analysis above there are 3 points we can takeaway.
 16. https://medium.com/@dcomp/histograms-and-kernels-density-estimates-a2c41eb08de3
 17. https://en.wikipedia.org/wiki/Exploratory_data_analysis
 18. https://en.wikipedia.org/wiki/Interquartile_range
+19. https://en.wikipedia.org/wiki/Multimodal_distribution
+20. https://en.wikipedia.org/wiki/Normal_distribution
