@@ -124,7 +124,7 @@ The data in summary.txt shows some basic statistics for the data and separates t
 
 While the virginica species tends to be larger than versicolor on average across all measurements they are not as easily separated as Setosa. Looking at the results of the summary of both species we can see there is significant overlap in the [interquartile ranges](https://en.wikipedia.org/wiki/Interquartile_range) [18] of the two species. This poses a difficult challenge if we were given an unclassified flower and had to identify what species it was based it's measurements alone as many virginica and versicolor flowers would share similar values.
 
-**fig.1**
+**fig.1** Species Means
 |Species       | sepal_length | sepal_width | petal_length | petal_width |                                                        
 |--------------|--------------|-------------|--------------|-------------|
 |setosa        |   5.006      |  3.418      |   1.464      |  0.244      |
@@ -135,9 +135,11 @@ While the virginica species tends to be larger than versicolor on average across
 
 In general the variables present with a [Multimodal Distribution](https://en.wikipedia.org/wiki/Multimodal_distribution) [19] where there are more than one peak. The exception here is seen below in the Sepal Width Histogram which shows a [Normal Distribution](https://en.wikipedia.org/wiki/Normal_distribution) [20]. This multi-peak can be explained by looking at the individual species in the sub-graphs. In the Petal Length plot, for example, we can see a peak between 1 and 2 which corresponds exactly with the Setosa Species where all the measurements fall between these values. The individual species have much more normal distorbutions on their own than the entire dataset presents.
 
-**fig.2**       
+| fig.2 Histograms   |  |
 |---------|-------|
+|Petal Length| Petal Width  |
 | <img src=https://github.com/cian-gmit-da2020/PandS-Project/blob/master/Petal%20Length%20Histogram.png width="400"> | <img src=https://github.com/cian-gmit-da2020/PandS-Project/blob/master/Petal%20Width%20Histogram.png width="400"> |
+|Sepal Length |Sepal Width |
 | <img src=https://github.com/cian-gmit-da2020/PandS-Project/blob/master/Sepal%20Length%20Histogram.png width="400"> | <img src=https://github.com/cian-gmit-da2020/PandS-Project/blob/master/Sepal%20Width%20Histogram.png width="400"> |
 
 ## Scatter Pairs
@@ -148,7 +150,7 @@ The only variable pair where the three species are closely clustered is sepal_le
 
 If we look again at the relationship between Versicolor and Virginica Species we can again see that in general Virginica tend to be larger than their Versicolor counterparts. However there is a lack of clear separation between the variables and in the case of sepal length vs sepal width the species are almost indistinguishable.
 
-**fig.3**
+**fig.3** Scatter Plots
 
 <img src="https://github.com/cian-gmit-da2020/PandS-Project/blob/master/Scatter%20Pairs.png?raw=true" width=550>
 
